@@ -28,3 +28,10 @@ Citizen.CreateThread(function()
         print("[Essentials] Ready to block " .. #_blockedModelHashes .. " models from spawning")
     end
 end)
+
+if EssentialsConfig.PVP then
+    AddEventHandler("playerSpawned", function(spawn)
+        SetCanAttackFriendly(PlayerPedId(), true, false)
+        NetworkSetFriendlyFireOption(true)
+    end) 
+end

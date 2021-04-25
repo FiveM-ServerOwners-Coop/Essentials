@@ -24,6 +24,9 @@ EssentialsConfig = {
     --- Disables the wanted level for all players, every frame
     NeverWanted = true,
 
+    --- Enables player versus player AKA PVP combat
+    PVP = true,
+
     --- Disables the crosshair for all players, with an option to exclude certain weapon models
     Crosshair   = {
         Disabled = true,
