@@ -29,6 +29,10 @@ Citizen.CreateThread(function()
     end
 end)
 
+
+---
+--- Enable PVP
+---
 if EssentialsConfig.PVP then
     AddEventHandler("playerSpawned", function(spawn)
         SetCanAttackFriendly(PlayerPedId(), true, false)
