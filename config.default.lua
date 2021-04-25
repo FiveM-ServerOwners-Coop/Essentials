@@ -33,6 +33,29 @@ EssentialsConfig = {
         Excluded = {}
     },
 
+    -- Refer to https://github.com/synterrr/monke.io for help setting up application
+    Discord = {
+        Enabled = true,
+        -- This is for the application that will have your images https://discord.com/developers/applications
+        DiscordAppID = 653188008882864148,
+        -- Set the name for the Big rich presence image and its text
+        BigImageName = 'Logo',
+        BigImageHoverText = 'My FiveM server',
+        -- Set the name for the Small rich presence image and its text
+        SmallImageName = 'Icon',
+        SmallImageHoverText = 'Come play with us!',
+        RichPresenceText = "" ..GetPlayerServerId(PlayerId()).. " | " .. #GetActivePlayers() .. " Players",
+        -- Buttons
+        FirstButton = {
+            text = 'Join the Discord',
+            url = 'https://www.discord.gg/fivem',
+        }
+        SecondButton = {
+            text = 'Connect to the server',
+            url = 'fivem://connect/12.34.56.78:30120',
+        }
+    }
+
     NPCs        = {
         --- This disables all dispatch services in the game, this includes police responses,
         --- fire, ambulances, gangs, and the military.
