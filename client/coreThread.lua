@@ -24,6 +24,25 @@ CreateThread(function()
     end
 
     ---
+    --- Discord Rich Presence
+    ---
+    if EssentialsConfig.Discord.Enabled then
+        CreateThread(function()
+            SetDiscordAppId(EssentialsConfig.Discord.DiscordAppID)
+            while true do
+                SetDiscordRichPresenceAsset(EssentialsConfig.Discord.BigImageName) 
+                SetDiscordRichPresenceAssetText(EssentialsConfig.Discord.BigImageHoverText) 
+                SetDiscordRichPresenceAssetSmall(EssentialsConfig.Discord.SmallImageName)
+                SetDiscordRichPresenceAssetSmallText(EssentialsConfig.Discord.SmallImageHoverText)
+                SetRichPresence(EssentialsConfig.Discord.RichPresenceText()) 
+                SetDiscordRichPresenceAction(0, EssentialsConfig.Discord.FirstButton.text, EssentialsConfig.Discord.FirstButton.url)
+                SetDiscordRichPresenceAction(1, EssentialsConfig.Discord.SecondButton.text, EssentialsConfig.Discord.SecondButton.url)
+                Wait(5000)
+            end
+        end)
+    end
+
+    ---
     --- NPC Density
     ---
     local localDensity   = EssentialsConfig.NPCs.Density.Locals
@@ -42,33 +61,8 @@ CreateThread(function()
     end
 
     ---
-    --- Discord Rich Presence
-    ---
-    SetDiscordAppId(EssentialsConfig.Discord.DiscordAppID)
-    if EssentialsConfig.Discord.Enabled then
-        SetDiscordRichPresenceAsset(EssentialsConfig.Discord.BigImageName) 
-	SetDiscordRichPresenceAssetText(EssentialsConfig.Discord.BigImageHoverText) 
-	SetDiscordRichPresenceAssetSmall(EssentialsConfig.Discord.SmallImageName)
-	SetDiscordRichPresenceAssetSmallText(EssentialsConfig.Discord.SmallImageHoverText)
-	SetRichPresence(EssentialsConfig.Discord.RichPresenceText) 
-	SetDiscordRichPresenceAction(0, EssentialsConfig.Discord.FirstButton.text, EssentialsConfig.Discord.FirstButton.url)
-	SetDiscordRichPresenceAction(1, EssentialsConfig.Discord.SecondButton.text, EssentialsConfig.Discord.SecondButton.url)
-	Wait(5000)
-    end
-
-    ---
     --- Remove Map Limits
     ---
-    Wait(0)
-        ExpandWorldLimits(
-            -9000.0,
-            -11000.0,
-            30.0
-        )  
-        ExpandWorldLimits(
-            10000.0,
-            12000.0,
-            30.0
-        ) 		
-    end
+    ExpandWorldLimits(-9000.0, -11000.0, 30.0)
+    ExpandWorldLimits(10000.0, 12000.0, 30.0)
 end)
