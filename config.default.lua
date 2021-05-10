@@ -28,9 +28,14 @@ EssentialsConfig = {
     PVP = true,
 
     --- Disables the crosshair for all players, with an option to exclude certain weapon models
-    Crosshair   = {
+    Crosshair    = {
         Disabled = true,
         Excluded = {}
+    },
+
+    --- Controls the player minimap
+    Minimap = {
+        OnlyShowInVehicle = true,
     },
 
     -- Refer to https://github.com/synterrr/monke.io for help setting up application
@@ -44,17 +49,19 @@ EssentialsConfig = {
         -- Set the name for the Small rich presence image and its text
         SmallImageName = 'Icon',
         SmallImageHoverText = 'Come play with us!',
-        RichPresenceText = "" ..GetPlayerServerId(PlayerId()).. " | " .. #GetActivePlayers() .. " Players",
+        RichPresenceText = function()
+            return "" ..GetPlayerServerId(PlayerId()).. " | " .. #GetActivePlayers() .. " Players"
+        end,
         -- Buttons
         FirstButton = {
             text = 'Join the Discord',
             url = 'https://www.discord.gg/fivem',
-        }
+        },
         SecondButton = {
             text = 'Connect to the server',
             url = 'fivem://connect/12.34.56.78:30120',
         }
-    }
+    },
 
     NPCs        = {
         --- This disables all dispatch services in the game, this includes police responses,
